@@ -1,0 +1,15 @@
+export type TTheme = {
+  bgColor: string,
+  copyButtonFill: string,
+  mainFontColor: string,
+  selectButtonBorder: string,
+  sectionBorderColor: string,
+  stopButtonColor: string,
+  inWorkButtonColor: string,
+  doneButtonColor: string,
+  toDoListColorButton: string,
+  notPrimaryTextColor: string,
+  tableHeaderColor: string,
+  selectButtonFontColor: string,
+  switcherTextColor: string,
+};
