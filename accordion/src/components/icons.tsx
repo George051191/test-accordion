@@ -6,6 +6,7 @@ import { ReactComponent as BellPic } from '../assets/images/bell.svg';
 import { ReactComponent as CopyPic } from '../assets/images/copy.svg';
 import { ReactComponent as ArrowPic } from '../assets/images/arrow.svg';
 import { ReactComponent as SmallArrowPic } from '../assets/images/colouredarrow.svg';
+import { ReactComponent as SwitcherPic } from '../assets/images/switcher.svg';
 
 export const BellIcon = styled(BellPic)`
     width: 20px;
@@ -34,4 +35,11 @@ export const SmallArrowIcon = styled(SmallArrowPic) <{ isOpen: boolean }>`
     transform: ${({ isOpen }) => (isOpen ? 'rotate(180deg)' : 'rotate(0)')};
     transition: all ease .4s;
     margin-left: 11px;
+`;
+export const Switcher = styled(SwitcherPic)`
+       width: 30px;
+    height: 30px;
+    cursor: pointer;
+   
+    
 `;

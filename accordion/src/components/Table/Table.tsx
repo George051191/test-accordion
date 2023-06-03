@@ -10,7 +10,7 @@ import { titles } from '../../assets/utils';
 const Section = styled.section`
     display: flex;
     flex-direction: column;
-    padding-left: 36px;
+   
     padding-top: 41px;
     max-width: 1390px;
     width: 100%;
@@ -42,6 +42,7 @@ const Table = styled.table`
     width: 100%;
     display: flex;
     flex-direction: column;
+    
     @media screen and (max-width:1550px) {
         width:1290px;
         overflow: auto;

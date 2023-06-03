@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import React from 'react';
 import ReactDOM, { createRoot } from 'react-dom/client';
-
+import './index.css';
 import { MulishFonts, GlobalStyles, Roboto } from './vendor';
 import App from './components/App/App';
 

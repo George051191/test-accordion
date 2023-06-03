@@ -1,7 +1,9 @@
 export type TTheme = {
   bgColor: string,
+  tableBgColor: string;
   copyButtonFill: string,
   mainFontColor: string,
+  selectButtonFont:string,
   selectButtonBorder: string,
   sectionBorderColor: string,
   stopButtonColor: string,

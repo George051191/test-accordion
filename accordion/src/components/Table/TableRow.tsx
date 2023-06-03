@@ -24,7 +24,7 @@ const Td = styled.td<{ color: string }>`
     color: ${({ theme: { mainFontColor } }) => mainFontColor} ;
     opacity: 0.8;
     height: 66px;
-    background-color: ${({ color }) => (color === '#CEFDED' ? 'rgba(113, 250, 202, 1)' : 'rgba(255, 255, 255, 1)')};
+    background-color: ${({ color, theme: { tableBgColor } }) => (color === '#CEFDED' ? 'rgba(113, 250, 202, 1)' : tableBgColor)};
 `;
 
 const SelectButton = styled.button<{ color: string }>`
@@ -51,6 +51,7 @@ const SelectButton = styled.button<{ color: string }>`
 const Span = styled.span`
     width: 79px;
     text-align: initial;
+    color: ${({ theme: { selectButtonFont } }) => selectButtonFont};
 `;
 const List = styled.ul<{ isOpen: boolean }>`
     display:  ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
@@ -82,7 +83,7 @@ const ListItem = styled.li`
     line-height: 130%;
     cursor: pointer;
     letter-spacing: 0.008em;
-    color:${({ theme: { mainFontColor } }) => mainFontColor} ;
+    color:${({ theme: { selectButtonFont } }) => selectButtonFont} ;
 
 `;
 

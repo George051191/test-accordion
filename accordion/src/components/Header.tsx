@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { BellIcon } from './icons';
+import { BellIcon, Switcher } from './icons';
 
 const HeaderWrapper = styled.header`
     max-width: 1920px;
@@ -11,6 +11,7 @@ const HeaderWrapper = styled.header`
     background-color: ${({ theme: { bgColor } }) => bgColor};
     box-sizing: border-box;
     padding-left: 103px;
+    margin-bottom: 1px;
     @media screen and (max-width: 1670px) {
       padding-left: 10px;
     }
@@ -91,17 +92,19 @@ export const Position = styled.span`
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  gap: 5px;
   @media screen and (max-width:900px) {
     display: none;
   }
 `;
 
-const Header: FC = () => (
+const Header: FC<{ onClick: () => void }> = ({ onClick }) => (
   <HeaderWrapper>
     <HeaderContentContainer>
       <MockLogo />
       <Title>Проект</Title>
       <Wrapper>
+        <Switcher onClick={onClick} />
         <BellIcon />
         <MockAvatar />
         <UserWrapper>

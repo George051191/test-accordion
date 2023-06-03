@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { CopyIcon, BellIcon } from './icons';
+import { CopyIcon, BellIcon, Switcher } from './icons';
 import {
   MockAvatar, UserName, UserWrapper, Position,
 } from './Header';
@@ -20,6 +20,7 @@ const Aside = styled.aside`
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
+    background: ${({ theme: { bgColor } }) => bgColor};
 `;
 
 const ContentOpenButton = styled.button`
@@ -46,10 +47,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const Sidebar: FC = () => (
+const Sidebar: FC<{ onClick: () => void }> = ({ onClick }) => (
   <Aside>
 
     <Wrapper>
+      <Switcher onClick={onClick} />
       <BellIcon />
       <MockAvatar style={{ marginRight: '32px' }} />
     </Wrapper>

@@ -16,9 +16,9 @@ import {
   switcherTextColor,
   tableBgColor,
   selectButtonFont,
-} from '../assets/colors';
+} from '../assets/darkColors';
 
-export const themeLight: TTheme = {
+export const themeDark: TTheme = {
   bgColor,
   tableBgColor,
   copyButtonFill,

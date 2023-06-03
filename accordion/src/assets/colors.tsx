@@ -1,6 +1,8 @@
 const bgColor = 'rgba(255, 255, 255, 1)';
+const tableBgColor = 'rgba(255, 255, 255, 1)';
 const copyButtonFill = 'rgba(226, 226, 234, 1)';
 const mainFontColor = 'rgba(17, 20, 45, 1)';
+const selectButtonFont = 'rgba(17, 20, 45, 1)';
 const selectButtonFontColor = 'rgba(0, 0, 0, 1)';
 const selectButtonBorder = 'rgba(0, 0, 0, 1)';
 const sectionBorderColor = 'rgba(225, 225, 225, 1)';
@@ -26,4 +28,6 @@ export {
   tableHeaderColor,
   selectButtonFontColor,
   switcherTextColor,
+  tableBgColor,
+  selectButtonFont,
 };
