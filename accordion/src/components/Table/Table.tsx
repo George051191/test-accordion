@@ -14,6 +14,12 @@ const Section = styled.section`
     padding-top: 41px;
     max-width: 1390px;
     width: 100%;
+    @media screen and (max-width: 1450px) {
+      max-width: 1190px;
+    overflow: hidden;
+    overflow-x: scroll;
+    height: fit-content;
+    }
 `;
 
 const TableHeader = styled.caption`

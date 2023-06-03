@@ -8,7 +8,7 @@ import {
 
 const Aside = styled.aside`
     width: 80px;
-    height: 100vh;
+    min-height: 100vh;
     border-right: 1px solid ${({ theme: { sectionBorderColor } }) => sectionBorderColor};
     padding-top: 53px;
     padding-right: 12px;

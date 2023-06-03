@@ -10,6 +10,8 @@ const Main = styled.main`
 
   height: 100%;
   padding-left: 103px;
+  padding-right: 36px;
+  padding-bottom: 20px;
   margin: 0 auto;
   display: flex;
   @media screen and (max-width: 1670px) {

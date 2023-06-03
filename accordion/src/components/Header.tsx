@@ -14,6 +14,9 @@ const HeaderWrapper = styled.header`
     @media screen and (max-width: 1670px) {
       padding-left: 10px;
     }
+    @media screen and (min-width: 1965px) {
+      padding-left: 45px ;
+    }
 `;
 
 export const HeaderContentContainer = styled.div`
