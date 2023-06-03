@@ -5,31 +5,37 @@ import { BellIcon } from './icons';
 
 const HeaderWrapper = styled.header`
     max-width: 1920px;
-    width: 100%;
+    font-family: 'Mulish';
     margin: 0 auto;
     height: 80px;
     background-color: ${({ theme: { bgColor } }) => bgColor};
+    box-sizing: border-box;
     padding-left: 103px;
-
+    @media screen and (max-width: 1670px) {
+      padding-left: 10px;
+    }
 `;
 
-const HeaderContentContainer = styled.div`
+export const HeaderContentContainer = styled.div`
     max-width: 1540px;
     display: flex;
     align-items: center;
     width: 100%;
     height: 100%;
     border-bottom: 1px solid ${({ theme: { sectionBorderColor } }) => sectionBorderColor};
+   
+  
+    
 `;
 
-const MockLogo = styled.div`
+export const MockLogo = styled.div`
     cursor: pointer;
     border-radius: 8px;
     width: 40px;
     height: 40px;
     background-color: ${({ theme: { copyButtonFill } }) => copyButtonFill};
 `;
-const Title = styled.h1`
+export const Title = styled.h1`
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 700;
@@ -42,7 +48,7 @@ const Title = styled.h1`
     flex: auto;
 `;
 
-const MockAvatar = styled.div`
+export const MockAvatar = styled.div`
     width: 42px;
     height: 42px;
     border-radius: 20px;
@@ -51,13 +57,14 @@ const MockAvatar = styled.div`
     margin-right: 17px;
 `;
 
-const UserWrapper = styled.div`
+export const UserWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 4px;
+    margin-right: 66px;
 `;
 
-const UserName = styled.p`
+export const UserName = styled.p`
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 700;
@@ -68,7 +75,7 @@ const UserName = styled.p`
     color:${({ theme: { mainFontColor } }) => mainFontColor} ;
 `;
 
-const Position = styled.span`
+export const Position = styled.span`
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 400;
@@ -78,17 +85,28 @@ const Position = styled.span`
     color:${({ theme: { notPrimaryTextColor } }) => notPrimaryTextColor};
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  @media screen and (max-width:900px) {
+    display: none;
+  }
+`;
+
 const Header: FC = () => (
   <HeaderWrapper>
     <HeaderContentContainer>
       <MockLogo />
       <Title>Проект</Title>
-      <BellIcon />
-      <MockAvatar />
-      <UserWrapper>
-        <UserName>Иванов В. А.</UserName>
-        <Position>Должность</Position>
-      </UserWrapper>
+      <Wrapper>
+        <BellIcon />
+        <MockAvatar />
+        <UserWrapper>
+          <UserName>Иванов В. А.</UserName>
+          <Position>Должность</Position>
+        </UserWrapper>
+      </Wrapper>
+
     </HeaderContentContainer>
   </HeaderWrapper>
 );

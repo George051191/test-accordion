@@ -13,3 +13,25 @@ export type TTheme = {
   selectButtonFontColor: string,
   switcherTextColor: string,
 };
+
+export type TTableRow = {
+  date: string,
+  code: string,
+  project: string,
+  task: string,
+  response: string,
+  goto: string,
+  prioritet: number,
+  comment: string,
+  time: string,
+  fact: string,
+  start: string,
+  end: string,
+
+};
+
+export type TTaskType = {
+  title: string,
+  open: () => void,
+  openState: boolean,
+};

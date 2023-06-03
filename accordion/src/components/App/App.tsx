@@ -7,11 +7,14 @@ import TaskTable from '../Table/Table';
 
 const Main = styled.main`
   max-width: 1920px;
-  width: 100%;
+
   height: 100%;
   padding-left: 103px;
   margin: 0 auto;
   display: flex;
+  @media screen and (max-width: 1670px) {
+      padding-left: 10px;
+    }
 
 `;
 

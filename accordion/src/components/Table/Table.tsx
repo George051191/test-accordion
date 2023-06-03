@@ -1,9 +1,11 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable import/no-cycle */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import TaskType from './TaskType';
 import { Tr } from './tableUtilsComponents';
+import { titles } from '../../assets/utils';
 
 const Section = styled.section`
     display: flex;
@@ -23,6 +25,7 @@ const TableHeader = styled.caption`
     letter-spacing: 0.005em;
     margin: 0;
     text-align: start;
+    margin-left: 52px;
     
     margin-bottom: 20px;
     color:${({ theme: { mainFontColor } }) => mainFontColor} ;
@@ -33,9 +36,11 @@ const Table = styled.table`
     width: 100%;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width:1550px) {
+        width:1290px;
+        overflow: auto;
+    }
 `;
-
-
 
 const Th = styled.th<{ width: number }>`
     display: flex;
@@ -51,44 +56,63 @@ const Th = styled.th<{ width: number }>`
     color: ${({ theme: { mainFontColor } }) => mainFontColor} ;
     opacity: 0.8;
     height: 66px;
-    min-width: fit-content;
     max-width: ${({ width }) => width}px;
+    min-width: fit-content;
     width: 100%;
 `;
 
 const TaskTable: FC = () => {
-    const [state, setstate] = useState();
-    return (
-        <Section>
-            <Table>
-                <TableHeader>Задачи</TableHeader>
-                <Tr>
-                    <Th width={99}>Дата</Th>
-                    <Th width={75}>
-                        Шифр
-                        <br />
-                        задачи
-                    </Th>
-                    <Th width={77}>
-                        Шифр
-                        <br />
-                        проекта
-                    </Th>
-                    <Th width={171}>Задача</Th>
-                    <Th width={113}>Статус</Th>
-                    <Th width={123}>Ответственный</Th>
-                    <Th width={134}>Переназначить</Th>
-                    <Th width={101}>Приоритет</Th>
-                    <Th width={121}>Комментарий</Th>
-                    <Th width={82}>План время</Th>
-                    <Th width={82}>Факт время</Th>
-                    <Th width={105}>Начал</Th>
-                    <Th width={105}>Завершил</Th>
-                </Tr>
-                <TaskType />
-            </Table>
-        </Section>
-    );
+  const [state, setstate] = useState();
+  const [current, setCurrent] = useState('Задачи на сегодня');
+
+  return (
+    <Section>
+      <Table>
+        <TableHeader>Задачи</TableHeader>
+        <Tr>
+          <Th width={99}>Дата</Th>
+          <Th width={75}>
+            Шифр
+            <br />
+            задачи
+          </Th>
+          <Th width={77}>
+            Шифр
+            <br />
+            проекта
+          </Th>
+          <Th width={171}>Задача</Th>
+          <Th width={113}>Статус</Th>
+          <Th width={123}>Ответственный</Th>
+          <Th width={134}>Переназначить</Th>
+          <Th width={101}>Приоритет</Th>
+          <Th width={121}>Комментарий</Th>
+          <Th width={82}>
+            План
+            <br />
+            {' '}
+            время
+          </Th>
+          <Th width={82}>
+            Факт
+            <br />
+            {' '}
+            время
+          </Th>
+          <Th width={105}>Начал</Th>
+          <Th width={105}>Завершил</Th>
+        </Tr>
+        {titles.map((el, index) => (
+          <TaskType
+            key={index}
+            title={el}
+            open={() => (el === current ? setCurrent('') : setCurrent(el))}
+            openState={current === el} />
+        ))}
+
+      </Table>
+    </Section>
+  );
 };
 
 export default TaskTable;
