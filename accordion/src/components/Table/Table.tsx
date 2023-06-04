@@ -114,7 +114,8 @@ const TaskTable: FC = () => {
             key={index}
             title={el}
             open={() => (el === current ? setCurrent('') : setCurrent(el))}
-            openState={current === el} />
+            openState={current === el}
+            current={current} />
         ))}
 
       </Table>

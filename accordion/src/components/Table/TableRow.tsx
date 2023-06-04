@@ -1,8 +1,14 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/restrict-plus-operands */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-plusplus */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+
 /* eslint-disable ternary/no-unreachable */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable consistent-return */
 /* eslint-disable default-case */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
+
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import { Tr } from './tableUtilsComponents';
@@ -100,10 +106,10 @@ const TableRow: FC<TTableRow> = ({
   fact,
   start,
   end,
-}) => {
-  const [isOpen, open] = useState(false);
-  const [choose, setChoose] = useState('Выполнена');
 
+}) => {
+  const [choose, setChoose] = useState('Выполнена');
+  const [isOpen, open] = useState(false);
   const setPropertyColor = (stats: string) => {
     switch (stats) {
       case 'На паузе': {
@@ -131,10 +137,16 @@ const TableRow: FC<TTableRow> = ({
 
         <SelectButton color={setPropertyColor(choose)!}>
           <Span>{choose}</Span>
-          <SmallArrowIcon isOpen={isOpen} onClick={() => open(!isOpen)} />
+          <SmallArrowIcon
+            isOpen={isOpen}
+            onClick={() => { open(!isOpen); }} />
           <List isOpen={isOpen}>
             {status.map((el, index) => (
-              <ListItem onClick={() => setChoose(el)} key={index}>{el}</ListItem>
+              <ListItem
+                onClick={() => { open(!isOpen); setChoose(el); }}
+                key={index}>
+                {el}
+              </ListItem>
             ))}
           </List>
         </SelectButton>

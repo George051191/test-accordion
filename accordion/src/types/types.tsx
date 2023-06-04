@@ -29,11 +29,11 @@ export type TTableRow = {
   fact: string,
   start: string,
   end: string,
-
 };
 
 export type TTaskType = {
   title: string,
   open: () => void,
   openState: boolean,
+  current: string,
 };

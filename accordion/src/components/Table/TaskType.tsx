@@ -1,10 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prefer-template */
+/* eslint-disable @typescript-eslint/restrict-plus-operands */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable ternary/nesting */
 
-import React, { FC, useState } from 'react';
-import styled from 'styled-components';
+import React, { FC, useEffect, useState } from 'react';
+import styled, { keyframes } from 'styled-components';
 import { Tr } from './tableUtilsComponents';
 import { ArrowIcon } from '../icons';
 import TableRow from './TableRow';
@@ -19,14 +22,33 @@ const Td = styled.td`
     height: 48px;
   
 `;
+const runOut = keyframes`
+  from {
+    height: 0;
+    
+  }
+  to {
+    height: 748px;
+  }
+`;
 
-const TBody = styled.tbody<{ isOpen?: boolean }>`
+const runIn = keyframes`
+  from {
+    height: fit-content;
+  }
+  to {
+    height: 0;
+  }
+`;
+
+const TBody = styled.tbody<{ isOpen?: boolean, curHeight: string }>`
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: ${({ isOpen }) => (isOpen ? '746px' : isOpen === undefined ? '746px' : '0')};
-    overflow: hidden;
-    transition: all ease .5s;
+    height: ${({ isOpen, curHeight }) => (isOpen ? curHeight : isOpen === undefined ? curHeight : '0')};
+    overflow-y: scroll;
+    transition: height ease .5s;
+    animation: ${runOut} .4s ease initial;
 `;
 
 const Title = styled.p`
@@ -49,8 +71,9 @@ const Wrapper = styled.div`
   max-width: 235px;
 `;
 
-const TaskType: FC<TTaskType> = ({ open, title, openState }) => (
-
+const TaskType: FC<TTaskType> = ({
+  open, title, openState, current,
+}) => (
   <>
     <Tr>
       <Td colSpan={13}>
@@ -61,7 +84,7 @@ const TaskType: FC<TTaskType> = ({ open, title, openState }) => (
 
       </Td>
     </Tr>
-    <TBody isOpen={openState}>
+    <TBody curHeight={`${rowOblects.length * 68}px`} isOpen={openState}>
       {rowOblects.map((el, index) => (
         <TableRow
           key={index}
@@ -82,7 +105,6 @@ const TaskType: FC<TTaskType> = ({ open, title, openState }) => (
     </TBody>
 
   </>
-
 );
 
 export default TaskType;
